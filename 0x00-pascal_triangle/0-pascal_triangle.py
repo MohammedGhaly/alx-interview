@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """a module that contains pascal_triangle function"""
+
+
 def pascal_triangle(n):
     """
-    a function that returns a list of lists of integers representing the Pascal’s triangle of n
+    a function that returns a list of lists of integers representing
+    the Pascal’s triangle of n
     """
     if n <= 0:
         return []
