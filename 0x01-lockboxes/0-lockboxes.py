@@ -4,27 +4,19 @@
 
 def canUnlockAll(boxes: list):
     '''kicks off recursion'''
-    return recursive(boxes)
-
-
-def recursive(boxes, visited=None, current_box=0):
-    if visited is None:
-        visited = set()
-
-    # Mark the current box as visited
-    visited.add(current_box)
-
-    # Check if all boxes are visited
-    if len(visited) == len(boxes):
+    if len(boxes) == 1:
         return True
+    if (type(boxes) is not list or len(boxes) == 0):
+        return False
+    boxes_map = {i: i == 0 for i in range(len(boxes))}
+    recursive(boxes, boxes_map, keys=boxes[0])
+    return all(value for value in boxes_map.values())
 
-    # Explore keys in the current box
-    keys = boxes[current_box]
+
+def recursive(boxes, boxes_map: dict, keys):
+    '''recursive function to unlock the box'''
     for key in keys:
-        if key < len(boxes) and key not in visited:
-            # Recursively try to unlock the box with the key
-            if recursive(boxes, visited, key):
-                return True
-
-    # If all keys are explored and no more boxes can be unlocked, return False
-    return False
+        # if not (boxes_map.get(key, 0) or key >= len(boxes)):
+        if 0 <= key < len(boxes) and not boxes_map[key]:
+            boxes_map[key] = True
+            recursive(boxes, boxes_map, boxes[key])
