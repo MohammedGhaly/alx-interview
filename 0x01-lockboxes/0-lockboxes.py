@@ -7,13 +7,13 @@ def canUnlockAll(boxes: list):
     if len(boxes) < 2:
         return True
     boxes_map = {i: i == 0 for i in range(len(boxes))}
-    recursive(boxes, boxes_map, keys=boxes[0].copy())
+    recursive(boxes, boxes_map, keys=boxes[0])
     return all(value for value in boxes_map.values())
 
 
 def recursive(boxes, boxes_map: dict, keys):
     '''recursive function to unlock the box'''
     for key in keys:
-        if not (boxes_map[key] or key >= len(boxes)):
+        if not (boxes_map.get(key, 0) or key >= len(boxes)):
             boxes_map[key] = True
             recursive(boxes, boxes_map, boxes[key])
