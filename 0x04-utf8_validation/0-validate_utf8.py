@@ -5,7 +5,6 @@
 def validUTF8(data):
     '''checks if the data represents a valid utf format'''
     bytes_list = [format(el, '08b')[-8:] for el in data]
-    print(bytes_list)
     idx = 0
     while idx < len(bytes_list):
         n0_bytes = count_leading_ones(bytes_list[idx])
