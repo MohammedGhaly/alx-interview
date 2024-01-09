@@ -87,3 +87,4 @@ if (n < 4):
     exit(1)
 
 solveNQueens(n)
+
