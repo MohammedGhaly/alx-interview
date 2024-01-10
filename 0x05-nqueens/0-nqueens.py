@@ -3,7 +3,7 @@
 import sys
 
 
-def solveNQueens(n: int):
+def solveNQueens(n):
     """kicks off recursion and formats the final result to be printed"""
     board = [[1 for y in range(n)] for x in range(n)]
     recursive(board)
