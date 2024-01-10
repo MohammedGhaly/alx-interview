@@ -35,16 +35,13 @@ def exclude(b, i, j):
 
     right_diagonal_add = i + j
     left_diagonal_diff = i - j
-    # exclude row
     for idx in range(len(board)):
         if board[i][idx] == 1:
             board[i][idx] = 0
-    # exclude column
     for el in board:
         if el[j] == 1:
             el[j] = 0
 
-    # exclude diagonals
     for row_index in range(len(board)):
         for col_index in range(len(board)):
             if board[row_index][col_index] == 1 \
@@ -87,4 +84,3 @@ if (n < 4):
     exit(1)
 
 solveNQueens(n)
-
