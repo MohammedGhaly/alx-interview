@@ -3,7 +3,7 @@
 import sys
 
 
-def solveNQueens(n):
+def solve_n_queens(n):
     """kicks off recursion and formats the final result to be printed"""
     board = [[1 for y in range(n)] for x in range(n)]
     recursive(board)
@@ -79,8 +79,8 @@ except BaseException:
     print("N must be a number")
     exit(1)
 
-if (n < 4):
+if n < 4:
     print("N must be at least 4")
     exit(1)
 
-solveNQueens(n)
+solve_n_queens(n)
