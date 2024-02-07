@@ -8,7 +8,6 @@ def island_perimeter(grid):
     where 1 and 0 represent land and water respectively
     '''
     perimeter = 0
-
     for row, row_value in enumerate(grid):
         for col, value in enumerate(row_value):
 
