@@ -12,10 +12,10 @@ def island_perimeter(grid):
         for col, value in enumerate(row_value):
 
             if value:
-                top = (grid[row-1][col] == 0) if row > 0 else 0
-                bottom = grid[row+1][col] == 0 if row < len(grid)-1 else 0
-                left = grid[row][col-1] == 0 if col > 0 else 0
+                top = (grid[row-1][col] == 0) if row > 0 else 1
+                bottom = grid[row+1][col] == 0 if row < len(grid)-1 else 1
+                left = grid[row][col-1] == 0 if col > 0 else 1
                 right = grid[row][col +
-                                  1] == 0 if col < len(row_value)-1 else 0
+                                  1] == 0 if col < len(row_value)-1 else 1
                 perimeter += sum([top, bottom, right, left])
     return perimeter
