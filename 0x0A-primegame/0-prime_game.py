@@ -8,11 +8,10 @@ def isWinner(x, nums):
     '''
     a function to interpret the winner in the prime game from Maria or Ben"
     '''
-    if nums is None or not len(nums) or x == 0:
+    if nums is None or not len(nums) or x is None or x < 1:
         return None
 
-    maria_score = 0
-    ben_score = 0
+    maria_score = ben_score = 0
 
     for round in range(x):
         marias_turn = True
